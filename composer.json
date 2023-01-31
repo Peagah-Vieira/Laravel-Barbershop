@@ -6,6 +6,7 @@
     "license": "MIT",
     "require": {
         "php": "^8.0.2",
+        "buildix/timex": "^1.1",
         "filament/filament": "^2.16",
         "filament/spatie-laravel-translatable-plugin": "^2.16",
         "flowframe/laravel-trend": "^0.1.1",

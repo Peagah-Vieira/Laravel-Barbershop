@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5a98ffec57161f2b5d287f6f63c36a79",
+    "content-hash": "bc79a2b823d414117230c41e74df1fc0",
     "packages": [
         {
             "name": "akaunting/laravel-money",
@@ -333,6 +333,82 @@
                 }
             ],
             "time": "2022-08-10T22:54:19+00:00"
+        },
+        {
+            "name": "buildix/timex",
+            "version": "1.1.6",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/buildix/timex.git",
+                "reference": "cc6d08d2738784177751779b18ae03e9ccdc0729"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/buildix/timex/zipball/cc6d08d2738784177751779b18ae03e9ccdc0729",
+                "reference": "cc6d08d2738784177751779b18ae03e9ccdc0729",
+                "shasum": ""
+            },
+            "require": {
+                "filament/filament": "^v2.16.55",
+                "illuminate/contracts": "^9.0",
+                "php": "^8.1",
+                "spatie/laravel-package-tools": "^1.13.0"
+            },
+            "require-dev": {
+                "laravel/pint": "^1.0",
+                "nunomaduro/collision": "^6.0",
+                "orchestra/testbench": "^7.0",
+                "pestphp/pest": "^1.21",
+                "pestphp/pest-plugin-laravel": "^1.1",
+                "phpunit/phpunit": "^9.5"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Buildix\\Timex\\TimexServiceProvider"
+                    ],
+                    "aliases": {
+                        "Timex": "Buildix\\Timex\\Facades\\Timex"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Buildix\\Timex\\": "src",
+                    "Buildix\\Timex\\Database\\Factories\\": "database/factories"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Mikhail Karzanov",
+                    "email": "mikrosmile@icloud.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Calendar plugin for filamentphp",
+            "homepage": "https://github.com/buildix/timex",
+            "keywords": [
+                "Buildix",
+                "filament",
+                "laravel",
+                "timex"
+            ],
+            "support": {
+                "issues": "https://github.com/buildix/timex/issues",
+                "source": "https://github.com/buildix/timex/tree/1.1.6"
+            },
+            "funding": [
+                {
+                    "url": "https://liberapay.com/mikrosmile",
+                    "type": "liberapay"
+                }
+            ],
+            "time": "2022-12-25T20:05:05+00:00"
         },
         {
             "name": "danharrin/date-format-converter",
@@ -2637,16 +2713,16 @@
         },
         {
             "name": "livewire/livewire",
-            "version": "v2.11.1",
+            "version": "v2.11.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/livewire/livewire.git",
-                "reference": "3ecbb4885d61427e538fcfb9bb9598b513a2176f"
+                "reference": "e92233f31dc1b88fb1ac242b32afe1ab7525ee05"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/livewire/livewire/zipball/3ecbb4885d61427e538fcfb9bb9598b513a2176f",
-                "reference": "3ecbb4885d61427e538fcfb9bb9598b513a2176f",
+                "url": "https://api.github.com/repos/livewire/livewire/zipball/e92233f31dc1b88fb1ac242b32afe1ab7525ee05",
+                "reference": "e92233f31dc1b88fb1ac242b32afe1ab7525ee05",
                 "shasum": ""
             },
             "require": {
@@ -2698,7 +2774,7 @@
             "description": "A front-end framework for Laravel.",
             "support": {
                 "issues": "https://github.com/livewire/livewire/issues",
-                "source": "https://github.com/livewire/livewire/tree/v2.11.1"
+                "source": "https://github.com/livewire/livewire/tree/v2.11.2"
             },
             "funding": [
                 {
@@ -2706,7 +2782,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2023-01-28T00:15:41+00:00"
+            "time": "2023-01-29T23:45:02+00:00"
         },
         {
             "name": "masterminds/html5",
@@ -2881,16 +2957,16 @@
         },
         {
             "name": "nesbot/carbon",
-            "version": "2.65.0",
+            "version": "2.66.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/briannesbitt/Carbon.git",
-                "reference": "09acf64155c16dc6f580f36569ae89344e9734a3"
+                "reference": "496712849902241f04902033b0441b269effe001"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/09acf64155c16dc6f580f36569ae89344e9734a3",
-                "reference": "09acf64155c16dc6f580f36569ae89344e9734a3",
+                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/496712849902241f04902033b0441b269effe001",
+                "reference": "496712849902241f04902033b0441b269effe001",
                 "shasum": ""
             },
             "require": {
@@ -2979,7 +3055,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2023-01-06T15:55:01+00:00"
+            "time": "2023-01-29T18:53:47+00:00"
         },
         {
             "name": "nette/schema",
@@ -3831,16 +3907,16 @@
         },
         {
             "name": "psy/psysh",
-            "version": "v0.11.11",
+            "version": "v0.11.12",
             "source": {
                 "type": "git",
                 "url": "https://github.com/bobthecow/psysh.git",
-                "reference": "ba67f2d26278ec9266a5cfe0acba33a8ca1277ae"
+                "reference": "52cb7c47d403c31c0adc9bf7710fc355f93c20f7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bobthecow/psysh/zipball/ba67f2d26278ec9266a5cfe0acba33a8ca1277ae",
-                "reference": "ba67f2d26278ec9266a5cfe0acba33a8ca1277ae",
+                "url": "https://api.github.com/repos/bobthecow/psysh/zipball/52cb7c47d403c31c0adc9bf7710fc355f93c20f7",
+                "reference": "52cb7c47d403c31c0adc9bf7710fc355f93c20f7",
                 "shasum": ""
             },
             "require": {
@@ -3901,9 +3977,9 @@
             ],
             "support": {
                 "issues": "https://github.com/bobthecow/psysh/issues",
-                "source": "https://github.com/bobthecow/psysh/tree/v0.11.11"
+                "source": "https://github.com/bobthecow/psysh/tree/v0.11.12"
             },
-            "time": "2023-01-23T16:14:59+00:00"
+            "time": "2023-01-29T21:24:40+00:00"
         },
         {
             "name": "ralouphie/getallheaders",
