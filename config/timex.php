@@ -1,5 +1,6 @@
 <?php
 
+use App\Filament\Pages\Timex;
 use Carbon\Carbon;
 
 return [
@@ -62,7 +63,7 @@ return [
     */
 
     'pages' => [
-        'timex' => \Buildix\Timex\Pages\Timex::class,
+        'timex' => Timex::class,
         'slug' => 'calendario',
         'group' => 'calendário',
         'sort' => 0,
