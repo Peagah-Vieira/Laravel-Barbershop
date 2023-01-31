@@ -21,7 +21,6 @@ return new class extends Migration
             $table->longText('subject');
             $table->date('start');
             $table->time('startTime')->nullable();
-
             $table->timestamps();
         });
 

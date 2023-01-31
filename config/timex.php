@@ -1,6 +1,9 @@
 <?php
 
 use App\Filament\Pages\Timex;
+use App\Models\Category;
+use App\Models\Event;
+use App\Models\User;
 use Carbon\Carbon;
 
 return [
@@ -156,9 +159,9 @@ return [
     ],
 
     'models' => [
-        'event' => \Buildix\Timex\Models\Event::class,
+        'event' => Event::class,
         'users' => [
-            'model' => \App\Models\User::class,
+            'model' => User::class,
             'name' => 'name',
             'id' => 'id',
         ],
@@ -186,7 +189,7 @@ return [
     */
 
     'categories' => [
-            'isModelEnabled' => false,
+            'isModelEnabled' => true,
     /*
     |--------------------------------------------------------------------------
     | Category Model
@@ -198,7 +201,7 @@ return [
     |
     */
             'model' => [
-                'class' => \Buildix\Timex\Models\Category::class, // \App\Models\Category::class
+                'class' => Category::class, // \App\Models\Category::class
                 'key' => 'id', // "id" is a DB column - you can change by any primary key
                 'value' => 'value', // "value" is a DB column - it used for Select options and displays on Resource page
                 'icon' => 'icon', // "icon" is a DB column - define here any heroicon- icon

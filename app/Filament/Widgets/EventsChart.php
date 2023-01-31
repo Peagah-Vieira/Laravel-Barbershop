@@ -2,6 +2,7 @@
 
 namespace App\Filament\Widgets;
 
+use App\Models\Event;
 use Flowframe\Trend\Trend;
 use Flowframe\Trend\TrendValue;
 use Filament\Widgets\LineChartWidget;
@@ -12,7 +13,7 @@ class EventsChart extends LineChartWidget
 
     protected function getData(): array
     {
-        $data = Trend::model(\Buildix\Timex\Models\Event::class)
+        $data = Trend::model(Event::class)
             ->between(
                 start: now()->startOfYear(),
                 end: now()->endOfYear(),
