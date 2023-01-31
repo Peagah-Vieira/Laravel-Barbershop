@@ -44,14 +44,14 @@ class PaymentResource extends Resource
     public static function getGlobalSearchResultDetails(Model $record): array
     {
         return [
-            'Valor' => $record->amount,
+            'Valor' => $record->category->amount,
             'Data de Pagamento' => Carbon::parse($record->payment_date)->format('d-m-Y'),
         ];
     }
 
     public static function getGloballySearchableAttributes(): array
     {
-        return ['fullname', 'amount'];
+        return ['fullname'];
     }
 
     public static function form(Form $form): Form
@@ -64,11 +64,9 @@ class PaymentResource extends Resource
                             ->label('Nome Completo')
                             ->placeholder('John Doe Maia')
                             ->required(),
-                        Forms\Components\TextInput::make('amount')
-                            ->label('Valor')
-                            ->mask(fn (Forms\Components\TextInput\Mask $mask) => $mask
-                                ->money(prefix: 'R$', isSigned: false)
-                            )
+                        Forms\Components\Select::make('category')
+                            ->label('Categorias')
+                            ->relationship('category', 'name')
                             ->required(),
                         TimePickerField::make('payment_time')
                             ->label('Hora de Pagamento')
@@ -92,7 +90,11 @@ class PaymentResource extends Resource
                     ->label('Nome Completo')
                     ->searchable()
                     ->sortable(),
-                Tables\Columns\BadgeColumn::make('amount')
+                Tables\Columns\TextColumn::make('category.name')
+                    ->label('Categoria')
+                    ->searchable()
+                    ->sortable(),
+                Tables\Columns\BadgeColumn::make('category.amount')
                     ->label('Valor')
                     ->prefix('R$')
                     ->searchable()

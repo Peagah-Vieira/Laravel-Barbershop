@@ -28,7 +28,7 @@ return [
     */
 
     'mini' => [
-        'isMiniCalendarEnabled' => true,
+        'isMiniCalendarEnabled' => false,
         'isDayViewHidden' => false,
         'isNextMeetingViewHidden' => false,
     ],

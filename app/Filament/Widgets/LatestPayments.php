@@ -31,7 +31,7 @@ class LatestPayments extends BaseWidget
                 ->label('Nome Completo')
                 ->searchable()
                 ->sortable(),
-            BadgeColumn::make('amount')
+            BadgeColumn::make('category.amount')
                 ->label('Valor')
                 ->prefix('R$')
                 ->searchable()
@@ -56,25 +56,17 @@ class LatestPayments extends BaseWidget
                 ->form([
                     TextInput::make('fullname')
                         ->label('Nome Completo')
-                        ->placeholder('John Doe Maia')
-                        ->required(),
-                    TextInput::make('amount')
-                        ->label('Valor')
-                        ->mask(
-                            fn (TextInput\Mask $mask) => $mask
-                                ->money(prefix: 'R$', isSigned: false)
-                        )
-                        ->required(),
+                        ->placeholder('John Doe Maia'),
+                    TextInput::make('category.amount')
+                        ->label('Valor'),
                     TimePickerField::make('payment_time')
                         ->label('Hora de Pagamento')
                         ->okLabel('Confirm')
-                        ->cancelLabel('Cancel')
-                        ->required(),
+                        ->cancelLabel('Cancel'),
                     DatePicker::make('payment_date')
                         ->label('Data de Pagamento')
                         ->placeholder('Jan 5, 2023')
-                        ->maxDate(now())
-                        ->required(),
+                        ->maxDate(now()),
                 ])
         ];
     }

@@ -20,4 +20,9 @@ class Payment extends Model
         'payment_time',
         'payment_date',
     ];
+
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
+    }
 }

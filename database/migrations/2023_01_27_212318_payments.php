@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('payments', function (Blueprint $table) {
             $table->id();
             $table->string('fullname')->nullable();
-            $table->float('amount')->nullable();
+            $table->string('category_id')->nullable();
             $table->time('payment_time')->nullable();
             $table->date('payment_date')->nullable();
             $table->timestamps();

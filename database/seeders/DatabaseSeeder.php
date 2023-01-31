@@ -20,7 +20,7 @@ class DatabaseSeeder extends Seeder
             CategorySeeder::class,
         ]);
 
-        for($i = 1; $i <= 10; $i++){
+        for($i = 1; $i <= 5; $i++){
             DB::table(config('timex.tables.event.name'))->insert([
                 'id' => uuid_create(),
                 'end' => now(),
