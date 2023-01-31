@@ -18,9 +18,10 @@ class CategoryFactory extends Factory
     {
         return [
             'id' => '985a924f-3709-47d2-9bcf-e7d0be091f45',
-            'value' => 'Primeira Categoria',
-            'icon' => 'heroicon-o-clipboard',
-            'color' => 'primary',
+            'name' => 'Corte Teste',
+            'amount' => 55,
+            'created_at' => now(),
+            'updated_at' => now()
         ];
     }
 }

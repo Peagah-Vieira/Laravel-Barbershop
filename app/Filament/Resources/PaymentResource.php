@@ -104,9 +104,9 @@ class PaymentResource extends Resource
                     ->date(),
                 Tables\Columns\TextColumn::make('payment_time')
                     ->label('Data de Pagamento')
-                    ->time()
                     ->searchable()
                     ->sortable()
+                    ->time()
             ])->defaultSort('id')
             ->filters([
                 Tables\Filters\Filter::make('payment_date')

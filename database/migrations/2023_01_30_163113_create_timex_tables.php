@@ -26,9 +26,11 @@ return new class extends Migration
 
         Schema::create(config('timex.tables.category.name'), function (Blueprint $table){
             $table->uuid('id')->primary();
-            $table->string('value');
-            $table->string('icon')->nullable();
-            $table->string('color')->nullable();
+            $table->string('name');
+            $table->integer('amount');
+            $table->string('icon')->default('heroicon-o-scissors');
+            $table->string('color')->default('primary');
+            $table->timestamps();
         });
 
     }

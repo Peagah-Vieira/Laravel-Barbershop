@@ -203,7 +203,7 @@ return [
             'model' => [
                 'class' => Category::class, // \App\Models\Category::class
                 'key' => 'id', // "id" is a DB column - you can change by any primary key
-                'value' => 'value', // "value" is a DB column - it used for Select options and displays on Resource page
+                'value' => 'name', // "value" is a DB column - it used for Select options and displays on Resource page
                 'icon' => 'icon', // "icon" is a DB column - define here any heroicon- icon
                 'color' => 'color', // "color" is a DB column - default tailwindcss colors names like: primary / secondary / danger
             ],

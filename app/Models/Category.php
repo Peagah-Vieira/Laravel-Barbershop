@@ -9,16 +9,13 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 class Category extends BaseCategory
 {
     use HasUuids, HasFactory;
-    
-    protected $guarded = [];
+
+    public $timestamps = true;
 
     protected $fillable = [
-        'value',
-        'icon',
-        'color',
+        'name',
+        'amount',
     ];
-
-    public $timestamps = false;
 
     public function getTable()
     {
