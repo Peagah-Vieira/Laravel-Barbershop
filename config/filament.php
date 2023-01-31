@@ -1,23 +1,24 @@
 <?php
 
-use App\Filament\Auth\Login;
-use App\Filament\Pages\MyProfile;
-use App\Filament\Resources\PaymentResource;
-use App\Filament\Widgets\LatestPayments;
-use App\Filament\Widgets\PaymentsChart;
-use App\Filament\Widgets\SocialNetworksWidget;
-use Filament\Http\Middleware\Authenticate;
-use Filament\Http\Middleware\DispatchServingFilamentEvent;
-use Filament\Http\Middleware\MirrorConfigToSubpackages;
 use Filament\Pages;
 use Filament\Widgets;
-use Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse;
+use App\Filament\Auth\Login;
+use App\Filament\Pages\MyProfile;
+use App\Filament\Widgets\EventsChart;
+use App\Filament\Widgets\PaymentsChart;
+use App\Filament\Widgets\LatestPayments;
+use Filament\Http\Middleware\Authenticate;
+use App\Filament\Resources\PaymentResource;
+use App\Filament\Widgets\SocialNetworksWidget;
+use Illuminate\Session\Middleware\StartSession;
 use Illuminate\Cookie\Middleware\EncryptCookies;
-use Illuminate\Foundation\Http\Middleware\VerifyCsrfToken;
 use Illuminate\Routing\Middleware\SubstituteBindings;
 use Illuminate\Session\Middleware\AuthenticateSession;
-use Illuminate\Session\Middleware\StartSession;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
+use Filament\Http\Middleware\MirrorConfigToSubpackages;
+use Filament\Http\Middleware\DispatchServingFilamentEvent;
+use Illuminate\Foundation\Http\Middleware\VerifyCsrfToken;
+use Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse;
 
 return [
 
@@ -151,6 +152,7 @@ return [
             Widgets\AccountWidget::class,
             SocialNetworksWidget::class,
             PaymentsChart::class,
+            EventsChart::class,
             LatestPayments::class,
         ],
     ],
