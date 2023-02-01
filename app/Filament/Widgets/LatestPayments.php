@@ -21,7 +21,7 @@ class LatestPayments extends BaseWidget
 
     protected function getTableQuery(): Builder
     {
-        return Payment::latest();
+        return Payment::latest()->where('paid', 1);
     }
 
     protected function getTableColumns(): array
