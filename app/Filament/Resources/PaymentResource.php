@@ -78,6 +78,8 @@ class PaymentResource extends Resource
                             ->placeholder('Jan 5, 2023')
                             ->maxDate(now())
                             ->required(),
+                        Forms\Components\Toggle::make('paid')
+                            ->label('Pago'),
                     ])
             ]);
     }
@@ -99,6 +101,11 @@ class PaymentResource extends Resource
                     ->prefix('R$')
                     ->searchable()
                     ->sortable(),
+                Tables\Columns\IconColumn::make('paid')
+                    ->label('Pago')
+                    ->sortable()
+                    ->searchable()
+                    ->boolean(),
                 Tables\Columns\TextColumn::make('payment_date')
                     ->label('Hora de Pagamento')
                     ->searchable()

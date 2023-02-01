@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('fullname')->nullable();
             $table->string('category_id')->nullable();
+            $table->boolean('paid')->default(0);
             $table->time('payment_time')->nullable();
             $table->date('payment_date')->nullable();
             $table->timestamps();

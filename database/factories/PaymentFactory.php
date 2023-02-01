@@ -19,6 +19,7 @@ class PaymentFactory extends Factory
         return [
             'fullname' => fake()->name('male'),
             'category_id' => '985a924f-3709-47d2-9bcf-e7d0be091f45',
+            'paid' => 1,
             'payment_time' => now(),
             'payment_date' => now()
         ];

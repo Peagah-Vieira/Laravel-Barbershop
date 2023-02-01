@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use App\Models\Event;
+use App\Models\Payment;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -34,6 +35,12 @@ class MainController extends Controller
         $event->created_at = now();
         $event->updated_at = now();
         $event->save();
+
+        $payment = new Payment();
+        $payment->fullname = $request->subject;
+        $payment->category_id = $request->category;
+        $payment->paid = 0;
+        $payment->save();
 
         return redirect('/admin');
     }
