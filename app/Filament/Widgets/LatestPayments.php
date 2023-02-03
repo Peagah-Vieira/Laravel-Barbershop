@@ -3,7 +3,6 @@
 namespace App\Filament\Widgets;
 
 use App\Models\Payment;
-use Filament\Forms\Components\Select;
 use Filament\Tables\Actions\ViewAction;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Forms\Components\TextInput;
@@ -51,7 +50,7 @@ class LatestPayments extends BaseWidget
 
     protected function getTableActions(): array
     {
-        return [
+        return ([
             ViewAction::make()
                 ->form([
                     TextInput::make('fullname')
@@ -68,7 +67,7 @@ class LatestPayments extends BaseWidget
                         ->placeholder('Jan 5, 2023')
                         ->maxDate(now()),
                 ])
-        ];
+        ]);
     }
 
     protected function getDefaultTableRecordsPerPageSelectOption(): int

@@ -1,6 +1,7 @@
 <?php
 
 use App\Filament\Pages\Timex;
+use App\Filament\Resources\EventResource;
 use App\Models\Category;
 use App\Models\Event;
 use App\Models\User;
@@ -150,7 +151,7 @@ return [
     ],
 
     'resources' => [
-        'event' => \Buildix\Timex\Resources\EventResource::class,
+        'event' => EventResource::class,
         'sort' => 1,
         'icon' => 'heroicon-o-calendar',
         'slug' => 'eventos-calendario',

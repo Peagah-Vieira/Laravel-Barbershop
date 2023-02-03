@@ -13,6 +13,7 @@ return new class extends Migration
             $table->json('attachments')->nullable();
             $table->longText('body')->nullable();
             $table->string('category')->nullable();
+            $table->string('number')->nullable();
             $table->date('end');
             $table->time('endTime')->nullable();
             $table->boolean('isAllDay')->default(false);

@@ -26,6 +26,7 @@ class DatabaseSeeder extends Seeder
                 'end' => now(),
                 'endTime' => now(),
                 'body' => 'Mensagem Teste',
+                'number' => '22998438864',
                 'category' => '985a924f-3709-47d2-9bcf-e7d0be091f45',
                 'participants' => '[1]',
                 'organizer' => 1,

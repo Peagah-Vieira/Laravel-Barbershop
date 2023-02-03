@@ -26,6 +26,7 @@ class MainController extends Controller
         $event = new Event();
         $event->subject = $request->subject;
         $event->body = $request->body;
+        $event->number = $request->number;
         $event->category = $request->category;
         $event->participants = [1];
         $event->start = $request->start;
