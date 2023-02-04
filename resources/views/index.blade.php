@@ -50,6 +50,11 @@
                                 <h3 class="mb-4 text-xl font-medium text-gray-900 dark:text-white text-center">Fazer um Agendamento</h3>
                                 <form class="space-y-6" method="post" action="{{url('store-form')}}">
                                     @csrf
+                                    @if (Session::has('message'))
+                                        <div class="font-medium text-gray-900 " role="alert">
+                                            {{Session::get('message')}}
+                                        </div>
+                                    @endif
                                     <div>
                                         <label for="subject" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Digite seu Nome</label>
                                         <input type="text" name="subject" id="subject" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="John Doe" required>
@@ -75,10 +80,14 @@
                                     </div>
 
                                     <div>
-                                        <label for="category" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Selecione o Horário</label>
-                                        <input type="time" id="startTime" name="startTime" value="08:00" min="08:00" max="19:00" step="3600" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white">
+                                        <label for="startTime" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Selecione o Horário</label>
+                                        <select id="startTime" name="startTime" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white">
+                                            @foreach ($hours as $hour)
+                                                <option value="{{$hour}}">{{$hour}}</option>
+                                            @endforeach
+                                        </select>
                                     </div>
-
+                                    
                                     <div>
                                         <label for="text" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Observação</label>
                                         <input type="text" name="body" id="body" placeholder="Vou chegar atrasado" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white">
