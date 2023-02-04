@@ -10,6 +10,7 @@ use Filament\Resources\Form;
 use Filament\Resources\Resource;
 use Filament\Resources\Table;
 use Filament\Tables;
+use Illuminate\Database\Eloquent\Model;
 
 class CategoryResource extends Resource
 {
@@ -74,7 +75,7 @@ class CategoryResource extends Resource
                 ->sortable()
                 ->date()
                 ->description(fn($record) => Carbon::parse($record->updated_at)->format('H:i:s')),
-            ])
+            ])->defaultSort('amount')
             ->filters([
                 //
             ])

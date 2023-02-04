@@ -6,6 +6,7 @@ use App\Models\Category;
 use App\Models\Event;
 use App\Models\Payment;
 use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class MainController extends Controller
@@ -29,10 +30,11 @@ class MainController extends Controller
         $event->number = $request->number;
         $event->category = $request->category;
         $event->participants = [1];
+        $event->organizer = 1;
         $event->start = $request->start;
         $event->startTime = $request->startTime;
-        $event->end = now();
-        $event->endTime = now();
+        $event->end = Carbon::create($request->startTime)->addHour(1);
+        $event->endTime = Carbon::create($request->startTime)->addHour(1);
         $event->created_at = now();
         $event->updated_at = now();
         $event->save();

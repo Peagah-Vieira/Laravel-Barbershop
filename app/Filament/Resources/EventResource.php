@@ -32,12 +32,29 @@ use App\Filament\Resources\EventResource\Pages;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use App\Filament\Resources\EventResource\RelationManagers;
 use Filament\Forms\Components\Textarea;
+use Illuminate\Database\Eloquent\Model;
 
 class EventResource extends Resource
 {   
     use TimexTrait;
+    
     protected static ?string $recordTitleAttribute = 'subject';
+    
     protected $chosenStartTime;
+
+    public static function getGlobalSearchResultTitle(Model $record): string
+    {
+        return $record->subject;
+    }
+
+    public static function getGlobalSearchResultDetails(Model $record): array
+    {
+        return [
+            'Número' => $record->number,
+            'Data' => Carbon::parse($record->start)->format('d-m-Y'),
+            'Horário' => Carbon::parse($record->startTime)->format('H-i')
+        ];
+    }
 
     public static function getCategoryModel(): string
     {

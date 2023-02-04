@@ -19,23 +19,5 @@ class DatabaseSeeder extends Seeder
             PaymentSeeder::class,
             CategorySeeder::class,
         ]);
-
-        for($i = 1; $i <= 5; $i++){
-            DB::table(config('timex.tables.event.name'))->insert([
-                'id' => uuid_create(),
-                'end' => now(),
-                'endTime' => now(),
-                'body' => 'Mensagem Teste',
-                'number' => '22998438864',
-                'category' => '985a924f-3709-47d2-9bcf-e7d0be091f45',
-                'participants' => '[1]',
-                'organizer' => 1,
-                'subject' => 'Cliente' . ' ' . $i,
-                'start' => now(),
-                'startTime' => now(),
-                'created_at' => now(),
-                'updated_at' => now(),
-            ]);
-        }
     }
 }

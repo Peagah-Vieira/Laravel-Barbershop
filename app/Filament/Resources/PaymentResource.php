@@ -107,16 +107,12 @@ class PaymentResource extends Resource
                     ->searchable()
                     ->boolean(),
                 Tables\Columns\TextColumn::make('payment_date')
-                    ->label('Hora de Pagamento')
+                    ->label('Data de Pagamento')
+                    ->description(fn($record)=> $record->payment_time)
                     ->searchable()
                     ->sortable()
                     ->date(),
-                Tables\Columns\TextColumn::make('payment_time')
-                    ->label('Data de Pagamento')
-                    ->searchable()
-                    ->sortable()
-                    ->time()
-            ])->defaultSort('id')
+            ])->defaultSort('payment_date')
             ->filters([
                 Tables\Filters\Filter::make('payment_date')
                     ->form([
