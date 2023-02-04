@@ -31,24 +31,6 @@ $(document).ready(function(){
     });
   });
   
-  // Initialize and add the map
-  function initMap() {
-    // The location of Uluru
-    const myLatLng = { lat: 22.2734719, lng: 70.7512559 };
-    // The map, centered at Uluru
-    const map = new google.maps.Map(document.getElementById("map"), {
-      zoom: 8,
-      center: myLatLng,
-    });
-    // The marker, positioned at Uluru
-    const marker = new google.maps.Marker({
-      position: myLatLng,
-      map,
-      title: "Hello Rajkot!",
-    });
-  }
-  
-  
   var btn = $('#button');
   
   $(window).scroll(function() {

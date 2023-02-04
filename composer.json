@@ -15,7 +15,8 @@
         "jeffgreco13/filament-breezy": "v1.4.10.1",
         "laravel/framework": "^9.19",
         "laravel/sanctum": "^3.0",
-        "laravel/tinker": "^2.7"
+        "laravel/tinker": "^2.7",
+        "realrashid/sweet-alert": "^5.1"
     },
     "require-dev": {
         "doctrine/dbal": "^3.5",

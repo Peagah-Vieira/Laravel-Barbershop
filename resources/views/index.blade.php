@@ -10,11 +10,10 @@
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-    <script src="js/slick.min.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB0IouyQ48J0GbyVILPnHYFsB356GZwSxM&callback=initMap&libraries=&v=weekly" async defer></script>
-    <script src="js/main_script.js"></script>
     <script src="https://kit.fontawesome.com/0527a7a8a4.js" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.3/flowbite.min.js"></script>
+    <script src="js/slick.min.js"></script>
+    <script src="js/main_script.js"></script>
 </head>
 <body>
     <div class="services" id="services">
@@ -50,14 +49,9 @@
                                 <h3 class="mb-4 text-xl font-medium text-gray-900 dark:text-white text-center">Fazer um Agendamento</h3>
                                 <form class="space-y-6" method="post" action="{{url('store-form')}}">
                                     @csrf
-                                    @if (Session::has('message'))
-                                        <div class="font-medium text-gray-900 " role="alert">
-                                            {{Session::get('message')}}
-                                        </div>
-                                    @endif
                                     <div>
                                         <label for="subject" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Digite seu Nome</label>
-                                        <input type="text" name="subject" id="subject" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="John Doe" required>
+                                        <input type="text" name="subject" id="subject" value="{{old('subject')}}" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="John Doe" required>
                                     </div>
 
                                     <div>
@@ -67,7 +61,7 @@
 
                                     <div>
                                         <label for="category" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Selecione o Corte</label>
-                                        <select class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" id="category" name="category">
+                                        <select class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" id="category" name="category" required>
                                             @foreach ($categories as $category)
                                                 <option value="{{$category->id}}">{{$category->name}}</option>
                                             @endforeach
@@ -142,5 +136,6 @@
             </div>
         </div>
     </div>
+    @include('sweetalert::alert')
 </body>
 </html>

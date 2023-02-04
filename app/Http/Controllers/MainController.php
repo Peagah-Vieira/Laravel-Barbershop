@@ -8,6 +8,7 @@ use App\Models\Payment;
 use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class MainController extends Controller
 {
@@ -30,6 +31,14 @@ class MainController extends Controller
             '19:00',
         ];
 
+        if (session('success_message')) {
+            Alert::success('Horário agendado!', session('success_message'));
+        }
+
+        if (session('error_message')) {
+            Alert::error('Horário indisponível!', session('error_message'));
+        }
+
         return view('index', [
             'categories' => $category,
             'barbers' => $barber,
@@ -45,14 +54,12 @@ class MainController extends Controller
         $projectStart = Event::select('start')->where('start', $requestStart)->first();
         $projectStartTime = Event::select('startTime')->where('startTime', $requestStartTime)->first();
 
-        if ($projectStart && $projectStartTime) 
-        {
+        if ($projectStart && $projectStartTime) {
             $eventStart = Carbon::parse($projectStart->start);
             $eventStartTime = Carbon::parse($projectStartTime->startTime);
 
-            if ($requestStart == $eventStart && $requestStartTime == $eventStartTime) 
-            {
-                return back()->with('message', 'Horário indisponível');
+            if ($requestStart == $eventStart && $requestStartTime == $eventStartTime) {
+                return back()->with('error_message', 'Horário já agendado, agende outro horário, por gentileza.');
             }
 
             $event->subject = $request->subject;
@@ -75,11 +82,8 @@ class MainController extends Controller
             $payment->paid = 0;
             $payment->save();
 
-            return back()->with('message', 'Horário marcado');
-        }
-         
-        else 
-        {
+            return back()->with('success_message', 'Seu agendamento foi marcado no dia' . ' ' . Carbon::parse($request->start)->format('d/m') . ' ' . 'no horário de' . ' ' . $request->startTime. '.');
+        } else {
             $event->subject = $request->subject;
             $event->body = $request->body;
             $event->number = $request->number;
@@ -100,7 +104,7 @@ class MainController extends Controller
             $payment->paid = 0;
             $payment->save();
 
-            return back()->with('message', 'Horário marcado');
+            return back()->with('success_message', 'Seu agendamento foi marcado no dia' . ' ' . Carbon::parse($request->start)->format('d/m') . ' ' . 'no horário de' . ' ' . $request->startTime . '.');
         }
     }
 }
