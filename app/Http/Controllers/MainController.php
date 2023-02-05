@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Category;
+use Carbon\Carbon;
+use App\Models\User;
 use App\Models\Event;
 use App\Models\Payment;
-use App\Models\User;
-use Carbon\Carbon;
+use App\Models\Category;
+use Carbon\CarbonPeriod;
 use Illuminate\Http\Request;
 use RealRashid\SweetAlert\Facades\Alert;
 
@@ -16,7 +17,7 @@ class MainController extends Controller
     {
         $category = Category::all();
         $barber = User::all();
-        $hours = [
+        $weekdayHours = [
             '08:00',
             '09:00',
             '10:00',
@@ -28,7 +29,6 @@ class MainController extends Controller
             '16:00',
             '17:00',
             '18:00',
-            '19:00',
         ];
 
         if (session('success_message')) {
@@ -42,7 +42,7 @@ class MainController extends Controller
         return view('index', [
             'categories' => $category,
             'barbers' => $barber,
-            'hours' => $hours
+            'weekdayHours' => $weekdayHours,
         ]);
     }
 
@@ -51,15 +51,15 @@ class MainController extends Controller
         $event = new Event();
         $requestStart = Carbon::parse($request->start);
         $requestStartTime = Carbon::parse($request->startTime);
-        $projectStart = Event::select('start')->where('start', $requestStart)->first();
-        $projectStartTime = Event::select('startTime')->where('startTime', $requestStartTime)->first();
+        $databaseEventStart = Event::select('start')->where('start', $requestStart)->first();
+        $databaseEventStartTime = Event::select('startTime')->where('startTime', $requestStartTime)->first();
 
-        if ($projectStart && $projectStartTime) {
-            $eventStart = Carbon::parse($projectStart->start);
-            $eventStartTime = Carbon::parse($projectStartTime->startTime);
+        if ($databaseEventStart && $databaseEventStartTime) {
+            $eventStart = Carbon::parse($databaseEventStart->start);
+            $eventStartTime = Carbon::parse($databaseEventStartTime->startTime);
 
             if ($requestStart == $eventStart && $requestStartTime == $eventStartTime) {
-                return back()->with('error_message', 'Horário já agendado, agende outro horário, por gentileza.');
+                return back()->with('error_message', 'Horário já agendado, agende outro horário, por gentileza.')->withInput();
             }
 
             $event->subject = $request->subject;

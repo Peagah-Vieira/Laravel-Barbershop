@@ -56,35 +56,39 @@
 
                                     <div>
                                         <label for="number" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Digite seu Número</label>
-                                        <input type="text" name="number" id="number" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="(22)99843-8864" required>
+                                        <input type="text" name="number" id="number" value="{{old('number')}}" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="(22)99843-8864" required>
                                     </div>
 
                                     <div>
                                         <label for="category" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Selecione o Corte</label>
                                         <select class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" id="category" name="category" required>
                                             @foreach ($categories as $category)
-                                                <option value="{{$category->id}}">{{$category->name}}</option>
+                                                @if (old('category') == $category->id)
+                                                    <option value="{{$category->id}}" selected>{{$category->name}}</option>
+                                                @else
+                                                    <option value="{{$category->id}}">{{$category->name}}</option>
+                                                @endif
                                             @endforeach
                                         </select>
                                     </div>
 
                                     <div>
                                         <label for="start" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Selecione o Dia</label>
-                                        <input type="date" name="start" id="start" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required>
+                                        <input type="date" name="start" id="start" value="{{old('start')}}" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required>
                                     </div>
 
                                     <div>
                                         <label for="startTime" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Selecione o Horário</label>
                                         <select id="startTime" name="startTime" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white">
-                                            @foreach ($hours as $hour)
-                                                <option value="{{$hour}}">{{$hour}}</option>
+                                            @foreach ($weekdayHours as $weekdayHour)
+                                                <option value="{{$weekdayHour}}">{{$weekdayHour}}</option>
                                             @endforeach
                                         </select>
                                     </div>
                                     
                                     <div>
                                         <label for="text" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Observação</label>
-                                        <input type="text" name="body" id="body" placeholder="Vou chegar atrasado" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white">
+                                        <input type="text" name="body" id="body" placeholder="Vou chegar atrasado" value="{{old('body')}}" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white">
                                     </div>
 
                                     <button type="submit" class="w-full text-white bg-yellow-500 hover:bg-yellow-800 focus:ring-4 focus:outline-none focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-yellow-600 dark:hover:bg-yellow-700 dark:focus:ring-yellow-800">
