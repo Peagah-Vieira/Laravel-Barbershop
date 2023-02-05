@@ -16,20 +16,10 @@ class MainController extends Controller
     public function show()
     {
         $category = Category::all();
+
         $barber = User::all();
-        $weekdayHours = [
-            '08:00',
-            '09:00',
-            '10:00',
-            '11:00',
-            '12:00',
-            '13:00',
-            '14:00',
-            '15:00',
-            '16:00',
-            '17:00',
-            '18:00',
-        ];
+
+        $timePeriod = CarbonPeriod::since('08:00')->hours(1)->until('18:00')->toArray();
 
         $period = CarbonPeriod::between(now(), now()->addMonths(1))->addFilter(function ($date){
             return in_array($date->dayOfWeekIso, [1,2,3,4,5,6]);
@@ -47,22 +37,28 @@ class MainController extends Controller
             'categories' => $category,
             'barbers' => $barber,
             'days' => $period,
-            'weekdayHours' => $weekdayHours,
+            'weekdayHours' => $timePeriod,
         ]);
     }
 
     public function store(Request $request)
     {
         $event = new Event();
-        $requestStart = Carbon::parse($request->start);
+
+        $requestStart = Carbon::parse($request->start)->toDateString();
+
         $requestStartTime = Carbon::parse($request->startTime);
+
         $databaseEventStart = Event::select('start')->where('start', $requestStart)->first();
+
         $databaseEventStartTime = Event::select('startTime')->where('startTime', $requestStartTime)->first();
 
-        if ($databaseEventStart && $databaseEventStartTime) {
-            $eventStart = Carbon::parse($databaseEventStart->start);
-            $eventStartTime = Carbon::parse($databaseEventStartTime->startTime);
+        if ($databaseEventStart && $databaseEventStartTime) 
+        {
+            $eventStart = Carbon::parse($databaseEventStart->start)->toDateString();
 
+            $eventStartTime = Carbon::parse($databaseEventStartTime->startTime);
+            
             if ($requestStart == $eventStart && $requestStartTime == $eventStartTime) {
                 return back()->with('error_message', 'Horário já agendado, agende outro horário, por gentileza.')->withInput();
             }
@@ -87,7 +83,7 @@ class MainController extends Controller
             $payment->paid = 0;
             $payment->save();
 
-            return back()->with('success_message', 'Seu agendamento foi marcado no dia' . ' ' . Carbon::parse($request->start)->format('d/m') . ' ' . 'no horário de' . ' ' . $request->startTime. '.');
+            return back()->with('success_message', 'Seu agendamento foi marcado no dia' . ' ' . Carbon::parse($request->start)->format('d/m') . ' ' . 'no horário de' . ' ' . Carbon::parse($request->startTime)->format('H:i') . '.');
         } else {
             $event->subject = $request->subject;
             $event->body = $request->body;
@@ -109,7 +105,7 @@ class MainController extends Controller
             $payment->paid = 0;
             $payment->save();
 
-            return back()->with('success_message', 'Seu agendamento foi marcado no dia' . ' ' . Carbon::parse($request->start)->format('d/m') . ' ' . 'no horário de' . ' ' . $request->startTime . '.');
+            return back()->with('success_message', 'Seu agendamento foi marcado no dia' . ' ' . Carbon::parse($request->start)->format('d/m') . ' ' . 'no horário de' . ' ' . Carbon::parse($request->startTime)->format('H:i') . '.');
         }
     }
 }

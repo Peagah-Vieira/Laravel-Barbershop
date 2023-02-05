@@ -24,7 +24,7 @@
                 </div>
 
                 @foreach ($categories->sortBy('amount') as $category)
-                    <div class="container_services" data-modal-target="authentication-modal" data-modal-toggle="authentication-modal">
+                    <div class="container_services cursor-pointer" data-modal-target="authentication-modal" data-modal-toggle="authentication-modal">
                         <div class="strings_services">
                             <h3 class="uppercase">{{$category->name}}</h3>
                         </div>
@@ -85,7 +85,7 @@
                                         <label for="startTime" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Selecione o Horário</label>
                                         <select id="startTime" name="startTime" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white">
                                             @foreach ($weekdayHours as $weekdayHour)
-                                                <option value="{{$weekdayHour}}">{{$weekdayHour}}</option>
+                                                <option value="{{$weekdayHour}}">{{\Carbon\Carbon::parse($weekdayHour)->format('H:i')}}</option>
                                             @endforeach
                                         </select>
                                     </div>
