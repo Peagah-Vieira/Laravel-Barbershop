@@ -31,6 +31,10 @@ class MainController extends Controller
             '18:00',
         ];
 
+        $period = CarbonPeriod::between(now(), now()->addMonths(1))->addFilter(function ($date){
+            return in_array($date->dayOfWeekIso, [1,2,3,4,5,6]);
+        });
+
         if (session('success_message')) {
             Alert::success('Horário agendado!', session('success_message'));
         }
@@ -42,6 +46,7 @@ class MainController extends Controller
         return view('index', [
             'categories' => $category,
             'barbers' => $barber,
+            'days' => $period,
             'weekdayHours' => $weekdayHours,
         ]);
     }
