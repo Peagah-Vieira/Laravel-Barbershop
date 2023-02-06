@@ -14,6 +14,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.3/flowbite.min.js"></script>
     <script src="js/slick.min.js"></script>
     <script src="js/main_script.js"></script>
+    <script src="js/ajax_request.js"></script>
 </head>
 <body>
     <div class="services" id="services">
@@ -36,8 +37,6 @@
 
                 <div id="authentication-modal" tabindex="-1" aria-hidden="true" class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-modal md:h-full">
                     <div class="relative w-full h-full max-w-md md:h-auto">
-
-                        <!-- Modal content -->
                         <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
 
                             <button type="button" class="absolute top-3 right-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-800 dark:hover:text-white" data-modal-hide="authentication-modal">
@@ -76,12 +75,12 @@
                                         <label for="start" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Selecione o Dia</label>
                                         <select id="start" name="start" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white">
                                             @foreach ($days as $day)
-                                                <option value="{{$day}}">{{\Carbon\Carbon::parse($day)->format('d/m')}}</option>
+                                                <option value="{{$day}}">{{\Carbon\Carbon::parse($day)->translatedFormat('d/m - l')}}</option>
                                             @endforeach
                                         </select>
                                     </div>
 
-                                    <div>
+                                    <div id="weekday">
                                         <label for="startTime" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Selecione o Horário</label>
                                         <select id="startTime" name="startTime" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white">
                                             @foreach ($weekdayHours as $weekdayHour)
@@ -89,7 +88,16 @@
                                             @endforeach
                                         </select>
                                     </div>
-                                    
+
+                                    <div id="weekend">
+                                        <label for="startTime" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Selecione o Horário</label>
+                                        <select id="startTime" name="startTime" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white">
+                                            @foreach ($weekendHours as $weekendHour)
+                                                <option value="{{$weekendHour}}">{{\Carbon\Carbon::parse($weekendHour)->format('H:i')}}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+
                                     <div>
                                         <label for="text" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Observação</label>
                                         <input type="text" name="body" id="body" placeholder="Vou chegar atrasado" value="{{old('body')}}" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white">
@@ -113,34 +121,34 @@
     <div class="container_slider" id="portfolio">
         <div class="slider">
             <div class="slider__item">
-                <img src="img/1.jpg" alt="">
+                <img src="img/1.jpg">
             </div>
             <div class="slider__item">
-                <img src="img/2.jpg" alt="">
+                <img src="img/2.jpg">
             </div>
             <div class="slider__item">
-                <img src="img/4.jpg" alt="">
+                <img src="img/4.jpg">
             </div>
             <div class="slider__item">
-                <img src="img/6.jpg" alt="">
+                <img src="img/6.jpg">
             </div>
             <div class="slider__item">
-                <img src="img/5.jpg" alt="">
+                <img src="img/5.jpg">
             </div>
             <div class="slider__item">
-                <img src="img/1.jpg" alt="">
+                <img src="img/1.jpg">
             </div>
             <div class="slider__item">
-                <img src="img/2.jpg" alt="">
+                <img src="img/2.jpg">
             </div>
             <div class="slider__item">
-                <img src="img/4.jpg" alt="">
+                <img src="img/4.jpg">
             </div>
             <div class="slider__item">
-                <img src="img/6.jpg" alt="">
+                <img src="img/6.jpg">
             </div>
             <div class="slider__item">
-                <img src="img/5.jpg" alt="">
+                <img src="img/5.jpg">
             </div>
         </div>
     </div>

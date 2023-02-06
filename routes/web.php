@@ -16,4 +16,5 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [MainController::class, 'show']);
 Route::post('store-form', [MainController::class, 'store']);
+Route::get('checkTypeofDay', [MainController::class, 'checkTypeofDay']);
 

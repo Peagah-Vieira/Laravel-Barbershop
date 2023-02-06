@@ -19,10 +19,12 @@ class MainController extends Controller
 
         $barber = User::all();
 
-        $timePeriod = CarbonPeriod::since('08:00')->hours(1)->until('18:00')->toArray();
+        $weekdayTimePeriod = CarbonPeriod::since('08:00')->hours(1)->until('18:00')->toArray();
 
-        $period = CarbonPeriod::between(now(), now()->addMonths(1))->addFilter(function ($date){
-            return in_array($date->dayOfWeekIso, [1,2,3,4,5,6]);
+        $weekendTimePeriod = CarbonPeriod::since('08:00')->hours(1)->until('16:00')->toArray();
+
+        $period = CarbonPeriod::between(now(), now()->addMonths(1))->addFilter(function ($date) {
+            return in_array($date->dayOfWeekIso, [1, 2, 3, 4, 5, 6]);
         });
 
         if (session('success_message')) {
@@ -37,7 +39,8 @@ class MainController extends Controller
             'categories' => $category,
             'barbers' => $barber,
             'days' => $period,
-            'weekdayHours' => $timePeriod,
+            'weekdayHours' => $weekdayTimePeriod,
+            'weekendHours' => $weekendTimePeriod,
         ]);
     }
 
@@ -53,12 +56,11 @@ class MainController extends Controller
 
         $databaseEventStartTime = Event::select('startTime')->where('startTime', $requestStartTime)->first();
 
-        if ($databaseEventStart && $databaseEventStartTime) 
-        {
+        if ($databaseEventStart && $databaseEventStartTime) {
             $eventStart = Carbon::parse($databaseEventStart->start)->toDateString();
 
             $eventStartTime = Carbon::parse($databaseEventStartTime->startTime);
-            
+
             if ($requestStart == $eventStart && $requestStartTime == $eventStartTime) {
                 return back()->with('error_message', 'Horário já agendado, agende outro horário, por gentileza.')->withInput();
             }
@@ -106,6 +108,17 @@ class MainController extends Controller
             $payment->save();
 
             return back()->with('success_message', 'Seu agendamento foi marcado no dia' . ' ' . Carbon::parse($request->start)->format('d/m') . ' ' . 'no horário de' . ' ' . Carbon::parse($request->startTime)->format('H:i') . '.');
+        }
+    }
+
+    public function checkTypeofDay(Request $request)
+    {
+        if (Carbon::parse($request->id)->isWeekday()) {
+            $data = 0;
+            return response()->json($data);
+        } else {
+            $data = 1;
+            return response()->json($data);
         }
     }
 }
