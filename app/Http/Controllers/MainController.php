@@ -19,10 +19,6 @@ class MainController extends Controller
 
         $barber = User::all();
 
-        $weekdayTimePeriod = CarbonPeriod::since('08:00')->hours(1)->until('18:00')->toArray();
-
-        $weekendTimePeriod = CarbonPeriod::since('08:00')->hours(1)->until('16:00')->toArray();
-
         $period = CarbonPeriod::between(now(), now()->addMonths(1))->addFilter(function ($date) {
             return in_array($date->dayOfWeekIso, [1, 2, 3, 4, 5, 6]);
         });
@@ -39,8 +35,6 @@ class MainController extends Controller
             'categories' => $category,
             'barbers' => $barber,
             'days' => $period,
-            'weekdayHours' => $weekdayTimePeriod,
-            'weekendHours' => $weekendTimePeriod,
         ]);
     }
 
@@ -50,16 +44,17 @@ class MainController extends Controller
 
         $requestStart = Carbon::parse($request->start)->toDateString();
 
-        $requestStartTime = Carbon::parse($request->startTime);
+        $requestStartTime = Carbon::parse($request->startTime)->toDateTime();
 
         $databaseEventStart = Event::select('start')->where('start', $requestStart)->first();
 
         $databaseEventStartTime = Event::select('startTime')->where('startTime', $requestStartTime)->first();
 
         if ($databaseEventStart && $databaseEventStartTime) {
+
             $eventStart = Carbon::parse($databaseEventStart->start)->toDateString();
 
-            $eventStartTime = Carbon::parse($databaseEventStartTime->startTime);
+            $eventStartTime = Carbon::parse($databaseEventStartTime->startTime)->toDateTime();
 
             if ($requestStart == $eventStart && $requestStartTime == $eventStartTime) {
                 return back()->with('error_message', 'Horário já agendado, agende outro horário, por gentileza.')->withInput();
