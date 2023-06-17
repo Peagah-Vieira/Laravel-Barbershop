@@ -52,7 +52,7 @@ class EventResource extends Resource
         return [
             'Número' => $record->number,
             'Data' => Carbon::parse($record->start)->format('d-m-Y'),
-            'Horário' => Carbon::parse($record->startTime)->format('H-i')
+            'Horário' => Carbon::parse($record->startTime)->format('H:i')
         ];
     }
 
