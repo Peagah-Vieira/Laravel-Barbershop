@@ -1,58 +1,57 @@
 
-# Barber shop
+# Barbearia 
 
-Customized schedules with an administrative panel with several functionalities.
-
-
-## Functionalities
+Agendamentos customizados com um painel administrativo com várias funcionalidades.
 
 
-- Customized appointments
-- Customizable calendar
-- search bar
-- Real-time graphics
-- Customizable Alerts
-- 2-factor authentication (2FA)
-- Multiplataform
-- Dark/Light theme
+## Funcionalidades
+
+- Agendamentos Customizados
+- Caléndario Customizável
+- Barra de pesquisa
+- Gráficos em tempo real
+- Alertas Customizavéis
+- Autenticação em 2 fatores(2FA)
+- Multiplataforma
+- Tema Dark/Light
 
 
 
-## Demonstration
+## Demonstração
 
 https://www.youtube.com/watch?v=hwnjnKsOFYg
 
 
-## Running locally
+## Rodando localmente
 
-Clone the project
+Clone o projeto
 
 ```bash
   git clone https://github.com/Peagah-Vieira/Filament_Barbershop
 ```
 
-Install the dependencies
+Instale as dependências
 
 ```bash
   npm install 
   composer install
 ```
 
-Start the server
+Inicie o servidor
 
 ```bash
   npm run dev
 ```
 
-Migrate the database
+Migrar o banco de dados
 
 ```bash
   php artisan migrate:fresh --seed
 ```
 
-## Environment variables
+## Variáveis de Ambiente
 
-To run this project, you will need to add the following environment variables to your .env
+Para rodar esse projeto, você vai precisar adicionar as seguintes variáveis de ambiente no seu .env
 
 ```env
 APP_NAME=
@@ -69,14 +68,14 @@ DB_USERNAME=
 DB_PASSWORD=
 ```
 
-## Stacks
+## Stack utilizada
 
 **Front-end:** TailwindCSS
 
 **Back-end:** PHP(Laravel) | Jquery | Filament
 
 
-## Documentation
+## Documentação
 
 [Tailwind CSS](https://tailwindcss.com)
 [PHP](https://www.php.net)
