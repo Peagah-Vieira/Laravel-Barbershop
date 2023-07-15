@@ -1,4 +1,4 @@
-[![pt-br](https://img.shields.io/badge/lang-pt--br-green.svg)](https://github.com/Peagah-Vieira/Filament_Barbershop/blob/master/README-br.md)
+[![pt-br](https://img.shields.io/badge/lang-pt--br-green.svg)](https://github.com/Peagah-Vieira/Laravel-Barbershop/blob/master/README-br.md)
 # Barber shop
 
 Customized schedules with an administrative panel with several functionalities.
@@ -28,7 +28,7 @@ https://www.youtube.com/watch?v=hwnjnKsOFYg
 Clone the project
 
 ```bash
-  git clone https://github.com/Peagah-Vieira/Filament_Barbershop
+  git clone https://github.com/Peagah-Vieira/Laravel-Barbershop
 ```
 
 Install the dependencies
