@@ -1,84 +1,79 @@
+# Laravel Barbershop
 
-# Barbearia 
-
-Agendamentos customizados com um painel administrativo com várias funcionalidades.
-
+Agendas personalizadas com painel administrativo com diversas funcionalidades.
 
 ## Funcionalidades
 
-- Agendamentos Customizados
-- Caléndario Customizável
-- Barra de pesquisa
+- Painel com barra de navegação e barra lateral
+- Compromissos personalizados
+- Calendário personalizado
+- Alertas personalizados
+- Pesquisa personalizada
+- Tabelas personalizadas
+- Paginação personalizada
 - Gráficos em tempo real
-- Alertas Customizavéis
-- Autenticação em 2 fatores(2FA)
-- Multiplataforma
-- Tema Dark/Light
+- Autenticação de 2 fatores (2FA)
+- traduzível
+- Responsivo
+- Tema claro e escuro
+- Mensagens flash com sweetalert
 
+## Demonstração em vídeo
 
-
-## Demonstração
-
-https://www.youtube.com/watch?v=hwnjnKsOFYg
-
+[![Watch the video](https://gcdnb.pbrd.co/images/0wvz7rsCv1g4.png?o=1)](https://www.youtube.com/watch?v=hwnjnKsOFYg)
 
 ## Rodando localmente
 
-Clone o projeto
+Clonar o projeto
 
 ```bash
-  git clone https://github.com/Peagah-Vieira/Filament_Barbershop
+git clone https://github.com/Peagah-Vieira/Laravel-Barbershop
 ```
 
 Instale as dependências
 
 ```bash
-  npm install 
-  composer install
+npm install 
+composer install
 ```
 
-Inicie o servidor
+Alterar variáveis ​​de ambiente
 
 ```bash
-  npm run dev
+# Laravel Configuration
+# APP_NAME="Barbershop"
+# APP_ENV=local
+# APP_KEY="GENERATE A KEY"
+# APP_DEBUG=true
+# APP_URL=http://localhost
+
+# MySQL Configuration
+# DB_CONNECTION=mysql
+# DB_HOST=127.0.0.1
+# DB_PORT=3306
+# DB_DATABASE="CHANGE-ME"
+# DB_USERNAME="CHANGE-ME"
+# DB_PASSWORD="CHANGE-ME"
 ```
 
 Migrar o banco de dados
 
 ```bash
-  php artisan migrate:fresh --seed
+php artisan migrate:fresh --seed
 ```
 
-## Variáveis de Ambiente
+Iniciar o servidor
 
-Para rodar esse projeto, você vai precisar adicionar as seguintes variáveis de ambiente no seu .env
-
-```env
-APP_NAME=
-APP_ENV=
-APP_KEY=
-APP_DEBUG=
-APP_URL=
-
-DB_CONNECTION=
-DB_HOST=
-DB_PORT=
-DB_DATABASE=
-DB_USERNAME=
-DB_PASSWORD=
+```bash
+npm run dev
 ```
-
-## Stack utilizada
-
-**Front-end:** TailwindCSS
-
-**Back-end:** PHP(Laravel) | Jquery | Filament
-
 
 ## Documentação
 
-[Tailwind CSS](https://tailwindcss.com)
-[PHP](https://www.php.net)
-[Laravel](https://laravel.com)
-[Jquery](https://jquery.com)
-[Filament](https://filamentphp.com)
+[![PHP](https://img.shields.io/badge/PHP-777BB4?style=for-the-badge&logo=php&logoColor=white)](https://www.php.net)
+
+[![Laravel](https://img.shields.io/badge/Laravel-FF2D20?style=for-the-badge&logo=laravel&logoColor=white)](https://laravel.com)
+
+[![Tailwind](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://tailwindcss.com)
+
+[![Jquery](	https://img.shields.io/badge/jQuery-0769AD?style=for-the-badge&logo=jquery&logoColor=white)](https://jquery.com)
