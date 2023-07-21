@@ -17,10 +17,7 @@ class CategoryFactory extends Factory
     public function definition()
     {
         return [
-            'name' => 'Corte Teste',
-            'amount' => 55,
-            'created_at' => now(),
-            'updated_at' => now()
+            //
         ];
     }
 }
