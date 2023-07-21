@@ -1,4 +1,5 @@
-[![pt-br](https://img.shields.io/badge/lang-pt--br-green.svg)](https://github.com/Peagah-Vieira/Laravel-Barbershop/blob/master/README-br.md)# Laravel Barbershop
+[![pt-br](https://img.shields.io/badge/lang-pt--br-green.svg)](https://github.com/Peagah-Vieira/Laravel-Barbershop/blob/master/README-br.md)
+# Laravel Barbershop
 
 Customized schedules with an administrative panel with several functionalities.
 
@@ -20,7 +21,7 @@ Customized schedules with an administrative panel with several functionalities.
 
 ## Video Demonstration
 
-[![Video Demo](https://github.com/Peagah-Vieira/Laravel-Barbershop/assets/105545343/c7289c8c-aa7c-47b5-b778-d29601370c93)](https://www.youtube.com/watch?v=hwnjnKsOFYg)
+https://www.youtube.com/watch?v=hwnjnKsOFYg
 
 ## Running locally
 
