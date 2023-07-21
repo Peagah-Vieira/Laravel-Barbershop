@@ -21,7 +21,7 @@ Customized schedules with an administrative panel with several functionalities.
 
 ## Video Demonstration
 
-https://www.youtube.com/watch?v=hwnjnKsOFYg
+[![Watch the video](https://gcdnb.pbrd.co/images/0wvz7rsCv1g4.png?o=1)](https://www.youtube.com/watch?v=hwnjnKsOFYg)
 
 ## Running locally
 
