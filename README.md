@@ -1,80 +1,76 @@
 [![pt-br](https://img.shields.io/badge/lang-pt--br-green.svg)](https://github.com/Peagah-Vieira/Laravel-Barbershop/blob/master/README-br.md)
-# Barber shop
+![PHP](https://img.shields.io/badge/PHP-777BB4?style=for-the-badge&logo=php&logoColor=white)
+![Laravel](https://img.shields.io/badge/Laravel-FF2D20?style=for-the-badge&logo=laravel&logoColor=white)
+![Tailwind](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
+# Laravel Barbershop
 
 Customized schedules with an administrative panel with several functionalities.
 
-
 ## Functionalities
 
-
-- Customized appointments
-- Customizable calendar
-- search bar
+- Dashboard with navbar and sidebar
+- Custom appointments
+- Custom calendar
+- Custom alerts
+- Custom search
+- Custom tables
+- Custom pagination
 - Real-time graphics
-- Customizable Alerts
 - 2-factor authentication (2FA)
-- Multiplataform
-- Dark/Light theme
+- Translatable
+- Responsive
+- Light and dark theme
+- Flash messages with sweetalert
 
+## Video Demonstration
 
-
-## Demonstration
-
-https://www.youtube.com/watch?v=hwnjnKsOFYg
-
+[![Video Demo](https://github.com/Peagah-Vieira/Laravel-Barbershop/assets/105545343/c7289c8c-aa7c-47b5-b778-d29601370c93)](https://www.youtube.com/watch?v=hwnjnKsOFYg)
 
 ## Running locally
 
 Clone the project
 
 ```bash
-  git clone https://github.com/Peagah-Vieira/Laravel-Barbershop
+git clone https://github.com/Peagah-Vieira/Laravel-Barbershop
 ```
 
 Install the dependencies
 
 ```bash
-  npm install 
-  composer install
+npm install 
+composer install
 ```
 
-Start the server
+Change environment variables
 
 ```bash
-  npm run dev
+# Laravel Configuration
+# APP_NAME="Barbershop"
+# APP_ENV=local
+# APP_KEY="GENERATE A KEY"
+# APP_DEBUG=true
+# APP_URL=http://localhost
+
+# MySQL Configuration
+# DB_CONNECTION=mysql
+# DB_HOST=127.0.0.1
+# DB_PORT=3306
+# DB_DATABASE="CHANGE-ME"
+# DB_USERNAME="CHANGE-ME"
+# DB_PASSWORD="CHANGE-ME"
 ```
 
 Migrate the database
 
 ```bash
-  php artisan migrate:fresh --seed
+php artisan migrate:fresh --seed
 ```
 
-## Environment variables
+Start the server
 
-To run this project, you will need to add the following environment variables to your .env
-
-```env
-APP_NAME=
-APP_ENV=
-APP_KEY=
-APP_DEBUG=
-APP_URL=
-
-DB_CONNECTION=
-DB_HOST=
-DB_PORT=
-DB_DATABASE=
-DB_USERNAME=
-DB_PASSWORD=
+```bash
+npm run dev
 ```
-
-## Stacks
-
-**Front-end:** TailwindCSS
-
-**Back-end:** PHP(Laravel) | Jquery | Filament
-
 
 ## Documentation
 
