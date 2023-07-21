@@ -68,6 +68,20 @@ Iniciar o servidor
 npm run dev
 ```
 
+## Running the tests
+
+Para executar testes de recurso e unidade, execute o seguinte comando
+
+```bash
+vendor\bin\phpunit
+```
+
+Para executar testes de navegador, execute o seguinte comando
+
+```bash
+php artisan dusk
+```
+
 ## Documentação
 
 [![PHP](https://img.shields.io/badge/PHP-777BB4?style=for-the-badge&logo=php&logoColor=white)](https://www.php.net)

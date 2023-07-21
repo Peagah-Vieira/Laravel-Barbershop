@@ -69,6 +69,20 @@ Start the server
 npm run dev
 ```
 
+## Running the tests
+
+To run feature and unit tests, run the following command
+
+```bash
+vendor\bin\phpunit
+```
+
+To run browser tests, run the following command
+
+```bash
+php artisan dusk
+```
+
 ## Documentation
 
 [![PHP](https://img.shields.io/badge/PHP-777BB4?style=for-the-badge&logo=php&logoColor=white)](https://www.php.net)
