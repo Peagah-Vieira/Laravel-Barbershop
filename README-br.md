@@ -20,7 +20,7 @@ Agendas personalizadas com painel administrativo com diversas funcionalidades.
 
 ## Demonstração em vídeo
 
-[![Watch the video](https://gcdnb.pbrd.co/images/0wvz7rsCv1g4.png?o=1)](https://www.youtube.com/watch?v=hwnjnKsOFYg)
+https://www.youtube.com/watch?v=hwnjnKsOFYg
 
 ## Rodando localmente
 
