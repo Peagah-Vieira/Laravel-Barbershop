@@ -31,30 +31,22 @@ Clone the project
 git clone https://github.com/Peagah-Vieira/Laravel-Barbershop
 ```
 
-Install the dependencies
+Install all the dependencies using composer
 
 ```bash
-npm install 
 composer install
 ```
 
-Change environment variables
+Install all the dependencies using npm
 
 ```bash
-# Laravel Configuration
-# APP_NAME="Barbershop"
-# APP_ENV=local
-# APP_KEY="GENERATE A KEY"
-# APP_DEBUG=true
-# APP_URL=http://localhost
+npm install
+```
 
-# MySQL Configuration
-# DB_CONNECTION=mysql
-# DB_HOST=127.0.0.1
-# DB_PORT=3306
-# DB_DATABASE="CHANGE-ME"
-# DB_USERNAME="CHANGE-ME"
-# DB_PASSWORD="CHANGE-ME"
+Copy the example env file and make the required configuration changes in the .env file
+
+```bash
+cp .env.example .env
 ```
 
 Migrate the database
